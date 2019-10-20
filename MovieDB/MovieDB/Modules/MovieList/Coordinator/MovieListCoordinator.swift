@@ -33,7 +33,7 @@ class MovieListCoordinator: CoordinatorProtocol {
     }
     
     func finish(animated: Bool) {
-        
+        navigationController.popViewController(animated: animated)
     }
 
     private func showMovieList(){
@@ -59,7 +59,17 @@ class MovieListCoordinator: CoordinatorProtocol {
     }
     
     private func startMovieDetailModule(movieId: String){
-        let coordinator = MovieDetailCoordinator(navigationController: navigationController, movieId: movieId)
+        let coordinator = MovieDetailCoordinator(navigationController: navigationController,
+                                                 movieId: movieId)
+        
+        coordinator.action
+            .bind { (action) in
+                switch action {
+                case .finish:
+                    self.childCoordinators[.movieDetail] = nil
+                }
+        }.disposed(by: disposeBag)
+        
         childCoordinators[.movieDetail] = coordinator
         coordinator.start()
     }

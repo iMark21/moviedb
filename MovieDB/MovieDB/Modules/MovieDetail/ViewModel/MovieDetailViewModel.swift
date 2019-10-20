@@ -56,10 +56,10 @@ class MovieDetailViewModel: MovieDetailViewModelProtocol {
     var state: PublishSubject<MovieDetailViewState>
     var action: PublishSubject<MovieDetailAction>
     
-    private let repository: MovieDetailRepository
+    private let repository: MovieDetailRepositoryProtocol
     private let disposeBag: DisposeBag
 
-    init(repository: MovieDetailRepository) {
+    init(repository: MovieDetailRepositoryProtocol) {
         self.repository = repository
         self.state = PublishSubject<MovieDetailViewState>()
         self.action = PublishSubject<MovieDetailAction>()
@@ -74,7 +74,6 @@ class MovieDetailViewModel: MovieDetailViewModelProtocol {
             .flatMap({ (response) -> Observable<[MovieDetailViewModelCellProtocol]> in
                 return self.buildViewResponse(response: response)
             }).subscribe(onNext: { (response) in
-                print(response)
                 self.state.onNext(.loaded(viewResponse:.just(response)))
             }, onError: { (error) in
                 self.state.onNext(.error)

@@ -20,12 +20,17 @@ class MovieDetailViewController: UIViewController, Storyboarded {
     private let errorViewController = ErrorViewController()
     private let disposeBag = DisposeBag()
     
+    // MARK: - Life cycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureAccesibilityIdentifiers()
         configureView()
         setupViewModel()
         loadData()
     }
+    
+    // MARK: - View methods
     
     private func configureView() {
         title = NSLocalizedString("_title_detail", comment: "")
@@ -37,6 +42,15 @@ class MovieDetailViewController: UIViewController, Storyboarded {
                                  bundle: nil),forCellReuseIdentifier: LayoutConstants.Cell.MovieDetailCell)
         tableView.rowHeight = UITableView.automaticDimension
     }
+    
+    // MARK: - Accesibility test
+    
+    private func configureAccesibilityIdentifiers(){
+        view.accessibilityIdentifier = AccessibilityIdentifiers.views.list
+        tableView.accessibilityIdentifier = AccessibilityIdentifiers.elements.detailTableView
+    }
+    
+    // MARK: - ViewModel methods
     
     private func setupViewModel(){
         guard let viewModel = viewModel else {return}

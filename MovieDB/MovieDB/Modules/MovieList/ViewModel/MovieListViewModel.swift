@@ -76,10 +76,16 @@ class MovieListViewModel: MovieListViewModelProtocol{
             .flatMap({ (response) -> Observable<[MovieListViewModelCellProtocol]> in
                 return self.buildViewResponse(response: response)
             }).subscribe(onNext: { (response) in
-                print(response)
-                self.state.onNext(.loaded(viewResponse:.just(response)))
+                if response.count > 0 {
+                    self.state
+                        .onNext(.loaded(viewResponse:.just(response)))
+                }else{
+                    self.state
+                        .onNext(.empty)
+                }
             }, onError: { (error) in
-                self.state.onNext(.error)
+                self.state
+                    .onNext(.error)
             }).disposed(by: disposeBag)
     }
     

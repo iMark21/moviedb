@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import RxSwift
 
 class MovieDetailCoordinator: CoordinatorProtocol {
 
+    //public access
+    var action: PublishSubject<MovieDetailAction>
+    
     private let navigationController: UINavigationController
     private let movieId: String
 
@@ -17,6 +21,7 @@ class MovieDetailCoordinator: CoordinatorProtocol {
          movieId: String) {
         self.navigationController = navigationController
         self.movieId = movieId
+        self.action = PublishSubject<MovieDetailAction>()
     }
 
     func start() {
@@ -24,21 +29,17 @@ class MovieDetailCoordinator: CoordinatorProtocol {
     }
     
     func finish(animated: Bool) {
-        navigationController
-            .popViewController(animated: animated)
+        navigationController.popViewController(animated: animated)
+        action.onNext(.finish)
     }
 
     private func showMovieDetail(){
-        if let viewController = MovieDetailViewController.instantiate(storyboardName: LayoutConstants.Storyboard.Main) {
-            
-            let apiClient = APIClient.init(baseURL: URL.init(string: APIConstants.api.baseUrl)!)
-            let repository = MovieDetailRepository.init(apiClient: apiClient, movieId: movieId)
-            
-            let viewModel = MovieDetailViewModel.init(repository: repository)
-            viewController.viewModel = viewModel
-            
-            navigationController.pushViewController(viewController, animated: true)
-        }
+        guard let viewController = MovieDetailViewController.instantiate(storyboardName: LayoutConstants.Storyboard.Main) else {return}
+        let apiClient = APIClient.init(baseURL: URL.init(string: APIConstants.api.baseUrl)!)
+        let repository = MovieDetailRepository.init(apiClient: apiClient, movieId: movieId)
+        let viewModel = MovieDetailViewModel.init(repository: repository)
+        viewController.viewModel = viewModel
+        navigationController.pushViewController(viewController, animated: true)
     }
     
 }
