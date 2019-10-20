@@ -14,7 +14,7 @@ Diagram:
 - Implementing [Unit and UI Test](https://geekytheory.com/la-importancia-de-ui-testing-y-unit-testing)
 
 ## Screenshot
-<img src="https://imgur.com/ljZOQOK" width="300" />
+![alt text](https://imgur.com/ljZOQOK)
 
 ## TO-DO
 Improve UI design
