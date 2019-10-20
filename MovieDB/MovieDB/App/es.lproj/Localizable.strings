@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Juan Miguel Marqués Morilla on 19/05/2019.
+  
+*/
+
+"_title_error_message" = "Lo sentimos";
+"_description_error_message" = "Estamos experimentando algunos problemas. Inténtelo más tarde";
+"_button_error_message" = "OK";
+"_title_list" = "Películas";
