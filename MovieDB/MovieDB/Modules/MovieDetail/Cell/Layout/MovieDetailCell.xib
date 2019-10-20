@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="223" id="BJ2-tz-aBa" customClass="MovieDetailCell" customModule="MovieDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="223"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BJ2-tz-aBa" id="fdN-PA-Ivo">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="223"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lca-Pm-1Y8">
+                        <rect key="frame" x="20" y="20" width="280" height="0.0"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIb-ge-j93">
+                        <rect key="frame" x="20" y="25" width="280" height="178"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="MIb-ge-j93" secondAttribute="bottom" constant="20" id="L6l-vl-7Uk"/>
+                    <constraint firstAttribute="trailing" secondItem="MIb-ge-j93" secondAttribute="trailing" constant="20" id="UZj-r1-p46"/>
+                    <constraint firstItem="MIb-ge-j93" firstAttribute="leading" secondItem="fdN-PA-Ivo" secondAttribute="leading" constant="20" id="hgV-mq-mAH"/>
+                    <constraint firstAttribute="trailing" secondItem="lca-Pm-1Y8" secondAttribute="trailing" constant="20" id="juh-AZ-VAk"/>
+                    <constraint firstItem="lca-Pm-1Y8" firstAttribute="leading" secondItem="fdN-PA-Ivo" secondAttribute="leading" constant="20" id="p7H-xd-NhZ"/>
+                    <constraint firstItem="lca-Pm-1Y8" firstAttribute="top" secondItem="fdN-PA-Ivo" secondAttribute="top" constant="20" id="uT1-v6-enu"/>
+                    <constraint firstItem="MIb-ge-j93" firstAttribute="top" secondItem="lca-Pm-1Y8" secondAttribute="bottom" constant="5" id="zxY-pc-90A"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="mDO-jl-gmG"/>
+            <connections>
+                <outlet property="titleLabeld" destination="lca-Pm-1Y8" id="L9d-mJ-Sa4"/>
+                <outlet property="valueLabel" destination="MIb-ge-j93" id="pGE-P5-VWE"/>
+            </connections>
+            <point key="canvasLocation" x="-55" y="122"/>
+        </tableViewCell>
+    </objects>
+</document>

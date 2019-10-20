@@ -4,6 +4,7 @@ platform :ios, '13.1'
 def available_pods
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod 'Kingfisher'
 end
 
 target 'MovieDB' do

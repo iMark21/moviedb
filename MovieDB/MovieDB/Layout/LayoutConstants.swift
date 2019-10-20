@@ -18,5 +18,6 @@ struct LayoutConstants {
     }
     struct Cell{
         static let MovieListCell = "MovieListCell"
+        static let MovieDetailCell = "MovieDetailCell"
     }
 }

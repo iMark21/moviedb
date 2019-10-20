@@ -10,3 +10,4 @@
 "_description_error_message" = "We are having some problems. Please try again later";
 "_button_error_message" = "OK";
 "_title_list" = "Movies";
+"_title_detail" = "Details";
