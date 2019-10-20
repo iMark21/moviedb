@@ -84,8 +84,7 @@ class MovieListViewModel: MovieListViewModelProtocol{
                         .onNext(.empty)
                 }
             }, onError: { (error) in
-                self.state
-                    .onNext(.error)
+                self.state.onNext(.error)
             }).disposed(by: disposeBag)
     }
     

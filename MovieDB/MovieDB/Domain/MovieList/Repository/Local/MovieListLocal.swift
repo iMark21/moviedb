@@ -16,15 +16,19 @@ protocol MovieListLocalProtocol {
 
 class MovieListLocal: MovieListLocalProtocol {
     
-    init() {
+    private let database: UserDefaults
+    
+    init(database: UserDefaults) {
+        self.database = database
     }
     
     func persistMovieListData(response: MovieListResponse) -> Observable<MovieListResponse> {
+        database.save(response, forKey: "Movies")
         return .just(response)
     }
     
     func retrieveMovieListResponse() -> MovieListResponse? {
-        return nil
+        let response: MovieListResponse? = database.getObject(forKey: "Movies")
+        return response
     }
-    
 }

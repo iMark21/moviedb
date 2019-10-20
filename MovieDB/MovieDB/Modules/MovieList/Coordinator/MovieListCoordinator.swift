@@ -40,7 +40,8 @@ class MovieListCoordinator: CoordinatorProtocol {
         if let viewController = MovieListViewController.instantiate(storyboardName: LayoutConstants.Storyboard.Main) {
             
             let apiClient = APIClient.init(baseURL: URL.init(string: APIConstants.api.baseUrl)!)
-            let repository = MovieListRepository.init(apiClient: apiClient, local: MovieListLocal.init())
+            let database = UserDefaults.standard
+            let repository = MovieListRepository.init(apiClient: apiClient, local: MovieListLocal.init(database: database))
             
             let viewModel = MovieListViewModel.init(repository: repository)
             

@@ -13,7 +13,7 @@ class LoadingViewController: UIViewController {
     private lazy var activityIndicator = UIActivityIndicatorView.init(style: .large)
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor =  UIColor.white
+        self.view.backgroundColor =  UIColor.systemBackground
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(activityIndicator)
         NSLayoutConstraint.activate([

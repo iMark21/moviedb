@@ -27,17 +27,28 @@ class MovieListRepository: MovieListRepositoryProtocol {
     }
     
     func fetchMovieList() -> Observable<MovieListResponse> {
-        return requestMovieList()
+        if Reachability.isConnectedToNetwork(){
+            return requestMovieList()
+        }else{
+            return retrieveLocalMovieList()
+        }
+    }
+    
+    private func retrieveLocalMovieList() -> Observable<MovieListResponse> {
+        if let response = local.retrieveMovieListResponse(){
+            return .just(response)
+        }else{
+            return .just(MovieListResponse.init(page: 0,
+                                                totalResults: 0,
+                                                totalPages: 0,
+                                                movies: []))
+        }
     }
     
     private func requestMovieList() -> Observable<MovieListResponse> {
-        
         let request = MovieListRequest.init(apiKey: APIConstants.api.apiKey)
-        
         return apiClient
             .send(apiRequest: request)
             .flatMap{ self.local.persistMovieListData(response: $0) }
     }
-    
-    
 }

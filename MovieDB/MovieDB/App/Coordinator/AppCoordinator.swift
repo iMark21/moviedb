@@ -28,7 +28,6 @@ class AppCoordinator: CoordinatorProtocol {
         self.window = window
         self.navigationController = navigationController
         self.childCoordinators = [AppChildCoordinator: CoordinatorProtocol]()
-        navigationController.navigationBar.prefersLargeTitles = true
         self.window.rootViewController = navigationController
         self.disposeBag = DisposeBag()
     }

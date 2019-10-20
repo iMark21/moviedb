@@ -20,7 +20,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="nG0-cJ-rUg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AR5-e2-3WH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nG0-cJ-rUg" secondAttribute="bottom" id="QcX-KW-7Zg"/>

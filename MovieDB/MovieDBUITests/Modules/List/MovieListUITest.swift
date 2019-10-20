@@ -10,7 +10,7 @@ import XCTest
 
 class MovieListUITest: BaseUITests {
 
-   override func setUp() {
+    override func setUp() {
         super.setUp()
         app.launch()
     }
